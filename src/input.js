@@ -3,9 +3,17 @@
 var fs = require('fs');
 var when = require('when');
 
+/**
+ * Create a input method for reading HTML file
+ * @constructor
+ */
 function Input() {
 }
 
+/**
+ * Open a file from file path
+ * @param {string} filePath - the location of the HTML file
+ */
 Input.prototype.createInputFile = function(filePath) {
 
   // read function
@@ -20,6 +28,10 @@ Input.prototype.createInputFile = function(filePath) {
   };
 }
 
+/**
+ * Open a node readable stream
+ * @param {object} stream - A node readable stream
+ */
 Input.prototype.createInputStream = function(stream) {
 
   // read function
