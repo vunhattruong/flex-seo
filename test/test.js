@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 
 var Rule = require("../src/rule");
 
-describe('Validate default SEO rules', function() {    
+describe('Validate default SEO rules', function() {
     var cheerio = require('cheerio');
 
     it('<img /> should have alt attribute', function() {
@@ -12,7 +12,10 @@ describe('Validate default SEO rules', function() {
 
         var funObj = Rule.detectExistTagWithAttribute("", "img", "alt");
         var result = funObj(dom);
+        expect(result).to.be.an('object').that.not.own.property('defect');
 
+        funObj = Rule.detectCountWithoutTagWithAttribute("", "img", "alt");
+        result = funObj(dom);
         expect(result).to.be.an('object').that.not.own.property('defect');
     });
     
@@ -21,7 +24,10 @@ describe('Validate default SEO rules', function() {
 
         var funObj = Rule.detectExistTagWithAttribute("", "a", "rel");
         var result = funObj(dom);
+        expect(result).to.be.an('object').that.not.own.property('defect');
 
+        funObj = Rule.detectCountWithoutTagWithAttribute("", "a", "rel");
+        result = funObj(dom);
         expect(result).to.be.an('object').that.not.own.property('defect');
     });
 
