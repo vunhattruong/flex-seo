@@ -45,9 +45,9 @@ Flexseo.prototype.detectSEO = function(){
   var deferred = when.defer();
   
   if (this.option.enableImgTagDefect)
-    this.rules.push(Rule.detectExistTagWithAttribute("", "img", "alt"));
+    this.rules.push(Rule.detectCountWithoutTagWithAttribute("", "img", "alt"));
   if (this.option.enableATagDefect)
-    this.rules.push(Rule.detectExistTagWithAttribute("", "a", "rel"));
+    this.rules.push(Rule.detectCountWithoutTagWithAttribute("", "a", "rel"));
   if (this.option.enableHeadTagDefect){
     this.rules.push(Rule.detectExistTag("head", "title"));
     this.rules.push(Rule.detectExistTagWithAttributeValue("head", "meta", "name", "description"));
